@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/GqiangQ/Vue--WeUI/issues"
   },
-  "homepage": "https://github.com/GqiangQ/Vue--WeUI#readme"
+  "homepage": "https://github.com/GqiangQ/Vue--WeUI#readme",
+  "dependencies": {
+    "vue": "^2.6.11"
+  }
 }
