@@ -1,8 +1,9 @@
 import Vue from 'vue'
-import Button from 'components/button/Button'
+import Button from './Button.vue'
+Vue.components('we-button',Button)
 new Vue({
-    el: "#app",
-    components:{
-        Button,
+    el:'#app',
+    data:{
+        message:'oh yeah!!!'
     }
 })

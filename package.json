@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "serve": "/node_models/.bin/parcel"
+    "serve": "./node_models/.bin/parcel"
   },
   "repository": {
     "type": "git",
@@ -23,9 +23,17 @@
   },
   "homepage": "https://github.com/GqiangQ/Vue--WeUI#readme",
   "dependencies": {
-    "vue": "^2.6.11"
+    "components": "^0.1.0",
+    "vue": "^2.6.11",
+    "vue-hot-reload-api": "^2.3.4"
   },
   "devDependencies": {
-    "parcel-bundler": "^1.12.4"
+    "@vue/component-compiler-utils": "^3.1.2",
+    "parcel-bundler": "^1.12.4",
+    "sass": "^1.26.5",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "alias": {
+    "vue" : "./node_modules/vue/dist/vue.common.js"
   }
 }
