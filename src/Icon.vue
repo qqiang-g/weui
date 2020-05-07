@@ -1,5 +1,5 @@
 <template>
-     <svg class="g-icon" >
+     <svg class="we-icon" >
             <use :xlink:href="`#w-${name}`"></use>
         </svg>
 </template>
@@ -10,6 +10,6 @@ export default {
 </script>
 <style lang="scss">
 
-    .g-icon{ width: 1em; height: 1em; }
+    .we-icon{ width: 1em; height: 1em; }
 
 </style>

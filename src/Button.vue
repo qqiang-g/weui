@@ -1,5 +1,5 @@
 <template>
-    <button class="g-button" :class="{[`icon-${iconPosition}`]:true}"
+    <button class="we-button" :class="{[`icon-${iconPosition}`]:true}"
     @click="$emit('click')"
     >
         <we-icon class="icon" :class="loading?'loading':''" v-if="icon||loading" :name="loading?'loading':icon"></we-icon>
@@ -32,7 +32,7 @@ export default {
         0%{ transform: rotate(0deg); }
         100%{ transform: rotate(360deg); }
     }
-    .g-button{
+    .we-button{
         font-size: var(--font-size);
         height:var(--button-height);
         padding: 0 1em;
@@ -51,11 +51,7 @@ export default {
         &.icon-right{
             > .content{ order: 1; }
             >.icon{ order: 2; margin-right:0;margin-left: .3em; }
-
         }
-        .loading{
-            animation: spin 3s infinite linear;
-        }
+        .loading{ animation: spin 3s infinite linear; }
     }
-        
 </style>
