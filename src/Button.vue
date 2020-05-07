@@ -1,6 +1,6 @@
 <template>
     <button class="g-button" :class="{[`icon-${iconPosition}`]:true}">
-        <we-icon class="icon" :class="icon=='loading'?'loading':''" v-if="icon" :name="icon"></we-icon>
+        <we-icon class="icon" :class="loading?'loading':''" v-if="icon" :name="loading?'loading':icon"></we-icon>
         <div class="content">
             <slot></slot>  
         </div>
@@ -17,6 +17,9 @@ export default {
             validator(value){
                 return !(value !== 'left' && value !== 'right');
             }
+        },
+        loading:{
+            type:Boolean,
         }
     }
  }
@@ -49,7 +52,7 @@ export default {
 
         }
         .loading{
-            animation: spin 2s infinite linear;
+            animation: spin 3s infinite linear;
         }
     }
         
