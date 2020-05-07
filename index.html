@@ -32,8 +32,9 @@
 <body>
     <div id="app">
         <we-icon name="left"></we-icon>
-        <we-button icon="setting" icon-position="left">按钮</we-button>
-        <we-button icon="setting" icon-position="right">按钮</we-button>
+        <we-button icon="zan" icon-position="left">按钮</we-button>
+        <we-button icon-position="right" :loading='loading' @click='loading=!loading'>按钮</we-button>
+        <!-- <we-button icon="setting" icon-position="right" :loading='loading' @click='loading=!loading'>按钮</we-button> -->
         <we-button icon="loading" icon-position="left" loading>按钮</we-button>
     </div>
 </body>
