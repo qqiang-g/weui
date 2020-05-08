@@ -9,8 +9,12 @@
     </button>
 </template>
 <script>
+import Icon from './Icon'
+console.log(Icon)
 export default {
-    // props:['icon','iconPosition']
+    components:{
+        'we-icon':Icon
+    },
     props:{
         icon:{},
         iconPosition:{
