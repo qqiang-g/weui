@@ -82,3 +82,20 @@ const expect = chai.expect
     button.$destroy()
 }
 //
+{
+    const Constructor = Vue.extend(Button)
+    const we_button = new Constructor({
+        propsData:{
+            icon:'setting',
+            iconPosition:'right',
+        }
+    })
+    we_button.$mount()
+    we_button.$on('click',function(){
+        expect(1).to.eq(1)
+    })
+    let button = we_button.$el
+    button.click()
+    we_button.$el.remove()
+    we_button.$destroy()
+}
