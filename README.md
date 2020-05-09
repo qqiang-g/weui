@@ -28,8 +28,10 @@
 
 2. 安装Vue--ui
     ```
-    npm install gqq-ui-1-1
+    npm install --sava gqq-ui-1-1
     ```
+3. 引入组件
+        
 
 ## 文档
 ## 提问
