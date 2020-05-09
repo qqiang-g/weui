@@ -5,7 +5,9 @@
   "main": "dist/index.js",
   "scripts": {
     "serve": "npx parcel index.html --no-cache",
-    "bulid-npm-publish": "npx parcel build index.js --no-cache --no-minify",
+    "bulid": "npx parcel build index.js --no-cache --no-minify",
+    "link": "npm run bulid && npm link",
+    "publish": "npm run bulid && npm publish",
     "dev-test": "npx parcel watch test/* --no-cache",
     "dev-karma": "npx karma start",
     "test": "npx parcel build test/* --no-cache --no-minify && npx karma start --single-run"
