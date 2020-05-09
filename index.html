@@ -26,27 +26,43 @@
             width: 1em;
             height: 1em;
         }
-
+.box{
+    margin: 50px;
+}
     </style>
 </head>
 <body>
     <div id="app">
-        <we-icon name="left"></we-icon>
-        <we-button icon="zan" icon-position="left">按钮</we-button>
-        <we-button icon-position="right" :loading='loading' @click='loading=!loading'>按钮</we-button>
-        <!-- <we-button icon="setting" icon-position="right" :loading='loading' @click='loading=!loading'>按钮</we-button> -->
-        <we-button icon="loading" icon-position="left" loading>按钮</we-button>
-        <!-- button-group -->
-        <we-button-group>
-            <we-button icon="left" icon-position="left">按钮</we-button>
-            <we-button icon="right" icon-position="right">按钮</we-button>
-        </we-button-group>
-        <we-button-group> 
-            <we-button icon="left" icon-position="left"></we-button>
-            <we-button icon="zan" icon-position="left"></we-button>
-            <we-button icon="setting"></we-button>
-            <we-button icon="right" icon-position="right"></we-button>
-        </we-button-group>
+        <div class="box">
+            <we-icon name="left"></we-icon>
+            <we-button icon="zan" icon-position="left">按钮</we-button>
+            <we-button icon-position="right" :loading='loading' @click='loading=!loading'>按钮</we-button>
+            <!-- <we-button icon="setting" icon-position="right" :loading='loading' @click='loading=!loading'>按钮</we-button> -->
+            <we-button icon="loading" icon-position="left" loading>按钮</we-button>
+        </div>
+        <div class="box">
+            <!-- button-group -->
+            <we-button-group>
+                <we-button icon="left" icon-position="left">按钮</we-button>
+                <we-button icon="right" icon-position="right">按钮</we-button>
+            </we-button-group>
+            <we-button-group> 
+                <we-button icon="left" icon-position="left"></we-button>
+                <we-button icon="zan" icon-position="left"></we-button>
+                <we-button icon="setting"></we-button>
+                <we-button icon="right" icon-position="right"></we-button>
+            </we-button-group>
+        </div>
+        <!-- input -->
+        <div class="box">
+            <we-input value='张三 zhansan'></we-input>
+            <we-input value='张三 zhansan' disabled></we-input>
+            <we-input value='张三 zhansan' readonly></we-input>
+            <div class="box">
+                <we-input value='张三 zhansan' error='输入密码'></we-input>
+            </div>
+        </div>
+        
         <div id="test"></div>
     </div> 
 </body>
