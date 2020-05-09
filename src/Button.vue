@@ -10,7 +10,6 @@
 </template>    
 <script>
 import Icon from './Icon'
-console.log(Icon) 
 export default {
     components:{
         'we-icon':Icon
