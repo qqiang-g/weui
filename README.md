@@ -31,7 +31,19 @@
     npm install --sava gqq-ui-1-1
     ```
 3. 引入组件
-        
+    ```
+    import {Icon ,Button} from 'gqq-ui-1-1' 
+    import 'gqq-ui-1-1/dist/index.css'
+    export default {
+        name: 'Home', 
+        components: {
+            'we-button':Button,
+            'we-icon':Icon,
+        }
+    }
+    
+    ```
+
 
 ## 文档
 ## 提问
