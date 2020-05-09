@@ -1,16 +1,16 @@
 <template>
     <button class="we-button" :class="{[`icon-${iconPosition}`]:true}"
-    @click="$emit('click')"
+    @click="$emit('click')" 
     >
         <we-icon class="icon" :class="loading?'loading':''" v-if="icon||loading" :name="loading?'loading':icon"></we-icon>
         <div class="content">
             <slot></slot>  
         </div>
     </button>
-</template>
+</template>    
 <script>
 import Icon from './Icon'
-console.log(Icon)
+console.log(Icon) 
 export default {
     components:{
         'we-icon':Icon
