@@ -55,12 +55,13 @@
         </div>
         <!-- input -->
         <div class="box">
-            <we-input value='张三 zhansan'></we-input>
+            <we-input value='张三 zhansan' @change='inputChange'></we-input>
             <we-input value='张三 zhansan' disabled></we-input>
             <we-input value='张三 zhansan' readonly></we-input>
-            <div class="box">
-                <we-input value='张三 zhansan' error='输入密码'></we-input>
-            </div>
+        </div>
+        <div class="box">
+            <we-input value='张三 zhansan' error='输入密码' v-model='message'></we-input>
+            {{message}}
         </div>
         
         <div id="test"></div>

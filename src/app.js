@@ -12,7 +12,13 @@ new Vue({
     el:'#app',
     data () {
         return {
-            loading:false
+            loading:false,
+            message:'你好'
+        }
+    },
+    methods: {
+        inputChange(e){
+            console.log(e)
         }
     }
 }) 
