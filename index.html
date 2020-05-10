@@ -26,9 +26,9 @@
             width: 1em;
             height: 1em;
         }
-.box{
-    margin: 50px;
-}
+        .box{
+            margin: 50px;
+        }
     </style>
 </head>
 <body>
@@ -63,6 +63,44 @@
             <we-input value='张三 zhansan' error='输入密码' v-model='message'></we-input>
             {{message}}
         </div>
+        
+        <div class="box">
+            <we-row>
+                <we-col></we-col>
+                <we-col></we-col>
+            </we-row>
+            <we-row>
+                <we-col></we-col>
+                <we-col></we-col>
+                <we-col></we-col>
+            </we-row>
+            <we-row>
+                <we-col></we-col>
+                <we-col></we-col>
+                <we-col></we-col>
+                <we-col></we-col>
+            </we-row>
+            <we-row>
+                <we-col></we-col>
+                <we-col></we-col>
+                <we-col></we-col>
+                <we-col></we-col>
+                <we-col></we-col>
+            </we-row>
+            <we-row>
+                <we-col></we-col>
+                <we-col></we-col>
+                <we-col></we-col>
+                <we-col></we-col>
+                <we-col></we-col>
+                <we-col></we-col>
+            </we-row>
+            <we-row>
+                <we-col :span='2'></we-col>
+                <we-col span='22'></we-col>
+            </we-row>
+        </div>
+
         
         <div id="test"></div>
     </div> 
