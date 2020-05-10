@@ -29,6 +29,10 @@
         .box{
             margin: 50px;
         }
+        .test{
+            border:1px solid brown;
+            height: 100%;
+        }
     </style>
 </head>
 <body>
@@ -65,43 +69,39 @@
         </div>
         
         <div class="box">
+            
             <we-row>
-                <we-col></we-col>
-                <we-col></we-col>
+                <we-col span='10' ><div class="test">span:</div></we-col>
+                <we-col span='10' ><div class="test">span:</div></we-col>
+            </we-row>
+            
+            <we-row gutter='10'>
+                <we-col> <div class="test">gutter:</div></we-col>
+                <we-col> <div class="test">gutter:</div></we-col>
+                <we-col> <div class="test">gutter:</div></we-col>
+                <we-col> <div class="test">gutter:</div></we-col>
             </we-row>
             <we-row>
-                <we-col></we-col>
-                <we-col></we-col>
-                <we-col></we-col>
+                <we-col span='5'><div class="test">offset</div></we-col>
+                <we-col><div class="test">offset</div></we-col>
+                <we-col><div class="test">offset</div></we-col>
             </we-row>
             <we-row>
-                <we-col></we-col>
-                <we-col></we-col>
-                <we-col></we-col>
-                <we-col></we-col>
+                <we-col offset='6'><div class="test">offset</div></we-col>
+                <we-col><div class="test">offset</div></we-col>
+                <we-col><div class="test">offset</div></we-col>
             </we-row>
             <we-row>
-                <we-col></we-col>
-                <we-col></we-col>
-                <we-col></we-col>
-                <we-col></we-col>
-                <we-col></we-col>
+                <we-col><div class="test">1</div></we-col>
+                <we-col><div class="test">1</div></we-col>
+                <we-col><div class="test">1</div></we-col>
+                <we-col><div class="test">1</div></we-col>
             </we-row>
             <we-row>
-                <we-col></we-col>
-                <we-col></we-col>
-                <we-col></we-col>
-                <we-col></we-col>
-                <we-col></we-col>
-                <we-col></we-col>
-            </we-row>
-            <we-row>
-                <we-col :span='2'></we-col>
-                <we-col span='22'></we-col>
+                <we-col :span='2'><div class="test">1</div></we-col>
+                <we-col span='22'><div class="test">1</div></we-col>
             </we-row>
         </div>
-
-        
         <div id="test"></div>
     </div> 
 </body>

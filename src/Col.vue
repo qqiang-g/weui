@@ -1,5 +1,7 @@
 <template>
-    <div class="col" :class="[`col-${span}`]">
+    <div class="col" :class="[span&&`col-${span}`,offset&&`offset-${offset}`,gutter&&`gutter-${gutter}`]"
+        :style="{paddingLeft:gutter/2+'px',paddingRight:gutter/2+'px'}"
+    >
         <slot></slot>
     </div>
 </template>
@@ -8,22 +10,35 @@ export default {
     name:'Col',
     props:{
         span:{
-            type:[Number,String]
+            type:[Number,String],
+        },
+        offset:{
+            type:[Number,String],
+        },
+    },
+    data(){
+        return{
+            gutter:0
         }
-    }
+    },
 }
 </script>
 <style lang="scss" scoped>
     .col{
-        height: 100px;
-        background: #333;
-        width: 50%;
-        border: 1px solid #fff; 
+        height: 60px;
+        width: 50%;   
         $class: col-;
         @for $n from 1 through 24 {
             &.#{$class}#{$n}{
                 width: ($n/24)*100%;
             }
         }
+        $class: offset-;
+        @for $n from 1 through 24 {
+            &.#{$class}#{$n}{
+                margin-left: ($n/24)*100%;
+            }
+        }
+        
     }
 </style>
