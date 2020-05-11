@@ -13,7 +13,7 @@ let currentToast
 export default{
     install(Vue,options){
         Vue.prototype.$toast = function(msg,toastOptions){
-            // if(currentToast) currentToast.close()
+            if(currentToast) currentToast.close()
             currentToast=createToast({Vue,msg,propsData:toastOptions})
         }
     }
