@@ -34,6 +34,12 @@
             height: 100%;
         }
     </style>
+    <style>
+        .layoutitem{
+            border: 1px solid #666;
+            min-height: 50px;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
@@ -111,6 +117,37 @@
                 <we-col span='24':ipad='{span:12}' :narrow-pc='{span:8}' :pc='{span:6}' :wide-pc='{span:4}'><div class="test">1</div></we-col>
             </we-row>
         </div>
+        <div>
+            <we-layout style="height: 100vh;">
+                <we-header class="layoutitem"> header </we-header>
+                <we-content class="layoutitem"> content </we-content>
+                <we-footer class="layoutitem"> footer </we-footer>
+            </we-layout>
+            <we-layout style="height: 100vh;">
+                <we-header class="layoutitem"> header </we-header>
+                <we-layout>
+                    <we-sider class="layoutitem">sider</we-sider>
+                    <we-content class="layoutitem"> content </we-content>
+                </we-layout>
+                <we-footer class="layoutitem">footer</we-footer>
+            </we-layout>
+            <we-layout style="height: 100vh;">
+                <we-sider class="layoutitem">sider</we-sider>
+                <we-layout>
+                <we-header class="layoutitem"> header </we-header>
+                    <we-content class="layoutitem"> content </we-content>
+                    <we-footer class="layoutitem">footer</we-footer>
+                </we-layout>
+            </we-layout>
+            <we-layout style="height: 100vh;">
+                <we-sider class="layoutitem">sider</we-sider>
+                <we-layout>
+                <we-header class="layoutitem"> header </we-header>
+                    <we-content class="layoutitem"> content </we-content>
+                </we-layout>
+                <we-footer class="layoutitem">footer</we-footer>
+            </we-layout>
+        </div> 
         <div id="test"></div>
     </div> 
 </body>

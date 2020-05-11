@@ -5,15 +5,29 @@ import ButtonGroup from './Button-Group'
 import Input from './Input'
 import Row from './Row'
 import Col from './Col'
+import Layout from './Layout'
+import Header from './Header'
+import Content from './Content'
+import Sider from './Sider'
+import Footer from './Footer'
 
-Vue.component('we-button',Button)
-Vue.component('we-icon',Icon)
-Vue.component('we-button-group',ButtonGroup)
-Vue.component('we-input',Input)
-Vue.component('we-row',Row)
-Vue.component('we-col',Col)
+const components = {
+    'we-button':Button,
+    'we-icon':Icon,
+    'we-button-group':ButtonGroup,
+    'we-input':Input,
+    'we-row':Row,
+    'we-col':Col,
+    'we-layout':Layout,
+    'we-header':Header,
+    'we-content':Content,
+    'we-sider':Sider,
+    'we-footer':Footer
+}
+
 var vm = new Vue({
     el:'#app',
+    components,
     data () {
         return {
             loading:false,
