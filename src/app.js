@@ -56,11 +56,11 @@ var vm = new Vue({
             console.log(this['focus'])
         },
         click(){
-            this.$toast('密码错误！！激发的司法鉴定萨拉就密码错误！！',{
+            this.$toast('密码错误！！！',{
                 icon:'warning--alt-inverted--filled',
-                position:'right-top',
+                position:'middle',
                 autoCloseDelay:5000,
-                autoClose:false,
+                autoClose:true,
                 closeButton:{
                     // text:'关闭',
                     icon:'flag-error',
