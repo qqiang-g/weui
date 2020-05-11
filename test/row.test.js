@@ -41,7 +41,7 @@ Vue.config.productionTip = false
     // if('接收 align 属性', () => {
     //     const div = document.createElement('div')
     //     document.body.appendChild(div)
-    //     const Constructor = Vue.extend(Button)
+    //     const Constructor = Vue.extend(Row)
     //     const vm = new Constructor({
     //     propsData: {
     //         align:'left',
