@@ -58,6 +58,7 @@ var vm = new Vue({
         click(){
             this.$toast('密码错误！！激发的司法鉴定萨拉就密码错误！！',{
                 icon:'warning--alt-inverted--filled',
+                position:'right-top',
                 autoCloseDelay:5000,
                 autoClose:false,
                 closeButton:{

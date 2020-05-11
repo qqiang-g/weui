@@ -1,5 +1,5 @@
 <template>
-    <div class="toast" ref="toast">
+    <div class="toast" ref="toast" :class="toastClass">
         <we-icon class="icon" :name='icon'></we-icon>
         <div class="message">
             <slot v-if="!enableHtml"></slot>
@@ -53,11 +53,24 @@ export default {
         enableHtml:{
             type:Boolean,
             default:false
+        },
+        position:{
+            type:String,
+            default:'top',
+            validator(value){
+                return ['top','bottom','middle','right-top'].indexOf(value)>=0
+            }
         }
     },
     mounted(){
         this.exeAtuoClose()
         this.undateStyle()
+    },
+    computed:{
+        toastClass(){
+            const {position} = this
+            return [`position-${position}`]
+        }
     },
     methods:{
         undateStyle(){
@@ -97,10 +110,7 @@ export default {
         line-height: 1.8;
         min-height: $toast-min-height;
         position: fixed;
-        top: 0;
-        left: 50%;
         border: 1px solid #666;
-        transform: translateX(-50%);
         display: flex;
         align-items: center;
         background: $toast-bg;
@@ -117,6 +127,25 @@ export default {
             flex-shrink: 0;
             fill: $toast-color;
             margin: 0 16px;
+        }
+        &.position-top{
+            top: 0;
+            left: 50%;
+            transform: translate(-50%,0);
+        }
+        &.position-bottom{
+            bottom: 0;
+            left: 50%;
+            transform: translate(-50%,0);
+        }
+        &.position-middle{
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+        &.position-right-top{
+            top:0;
+            right: 0;
         }
     }
     
