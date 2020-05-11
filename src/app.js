@@ -39,7 +39,6 @@ var vm = new Vue({
     },
     created(){
         console.log(this)
-        this.$toast('123')
     },
     methods: {
         inputChange(e){
@@ -59,6 +58,9 @@ var vm = new Vue({
         blur(){
             console.log(this['focus'])
         },
+        click(){
+            this.$toast('123')
+        }
     }
 }) 
 import chai from 'chai'
