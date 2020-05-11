@@ -5,12 +5,13 @@
             <slot v-if="!enableHtml"></slot>
             <div v-else v-html="$slots.default[0]"></div>
         </div>
-        
-        <div class="line" ref="line" v-if="closeButton"></div>
-        <span class="close" v-if="closeButton" @click="onClickClose" >
-            <we-icon class="icon" v-if="closeButton.icon" :name="closeButton.icon"></we-icon>
-            <span v-else v-html="closeButton.text"></span>
-        </span>
+        <div v-if="!autoClose" class="line" ref="line"></div>
+        <div v-if="!autoClose">
+            <span class="close" v-if="closeButton" @click="onClickClose" >
+                <we-icon class="icon" v-if="closeButton.icon" :name="closeButton.icon"></we-icon>
+                <span v-else v-html="closeButton.text"></span>
+            </span>
+        </div>
     </div>
 </template>
 <script>
@@ -41,8 +42,7 @@ export default {
         },
         closeButton:{
             type:Object,
-            defaulet(value){
-                cnonsole.log(value)
+            default(value){
                 return{
                     text:'关闭',
                     icon:'',
@@ -55,15 +55,13 @@ export default {
             default:false
         }
     },
-    created(){
-        console.log(this.$props)
-    },
     mounted(){
         this.exeAtuoClose()
         this.undateStyle()
     },
     methods:{
         undateStyle(){
+            if(this.autoClose) return
             this.$nextTick(() => {
                 this.$refs.line.style.height = 
                 this.$refs.toast.getBoundingClientRect().height+'px'

@@ -37,9 +37,6 @@ var vm = new Vue({
             message:'你好'
         }
     },
-    created(){
-        console.log(this)
-    },
     methods: {
         inputChange(e){
             console.log('inputChange')
@@ -59,8 +56,10 @@ var vm = new Vue({
             console.log(this['focus'])
         },
         click(){
-            this.$toast('密码错误！！激发的司法鉴定萨拉就密码错误！！激发的司法鉴定萨拉就密码错误！！激发的司法鉴定萨拉就密码错误！！激发的司法鉴定萨拉就密码错误！！激发的司法鉴定萨拉就密码错误！！激发的司法鉴定萨拉就密码错误！！激发的司法鉴定萨拉就密码错误！！激发的司法鉴定萨拉就密码错误！！激发的司法鉴定萨拉就密码错误！！激发的司法鉴定萨拉就密码错误！！激发的司法鉴定萨拉就密码错误！！激发的司法鉴定萨拉就密码错误！！激发的司法鉴定萨拉就',{
+            this.$toast('密码错误！！激发的司法鉴定萨拉就密码错误！！',{
                 icon:'warning--alt-inverted--filled',
+                autoCloseDelay:5000,
+                autoClose:false,
                 closeButton:{
                     // text:'关闭',
                     icon:'flag-error',
