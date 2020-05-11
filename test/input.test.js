@@ -70,11 +70,7 @@ Vue.config.productionTip = false
                 methods:meth
             }).$mount()
             // console.log(vm[eventName]())
-            //触发input的 eventName 事件
-            let inputElement = vm.$el.querySelector('input')
-            // inputElement.dispatchEvent(eventName) 
-            // console.log(inputElement)
-            expect('hi').to.eq('hi')  
+            expect(vm[eventName]()).to.eq(eventName)  
         })
     })
     console.log('input 测试完成')
