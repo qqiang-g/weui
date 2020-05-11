@@ -59,7 +59,16 @@ var vm = new Vue({
             console.log(this['focus'])
         },
         click(){
-            this.$toast('123')
+            this.$toast('密码错误！！激发的司法鉴定萨拉就密码错误！！激发的司法鉴定萨拉就密码错误！！激发的司法鉴定萨拉就密码错误！！激发的司法鉴定萨拉就密码错误！！激发的司法鉴定萨拉就密码错误！！激发的司法鉴定萨拉就密码错误！！激发的司法鉴定萨拉就密码错误！！激发的司法鉴定萨拉就密码错误！！激发的司法鉴定萨拉就密码错误！！激发的司法鉴定萨拉就密码错误！！激发的司法鉴定萨拉就密码错误！！激发的司法鉴定萨拉就密码错误！！激发的司法鉴定萨拉就',{
+                icon:'warning--alt-inverted--filled',
+                closeButton:{
+                    // text:'关闭',
+                    icon:'flag-error',
+                    callback(){
+                        console.log('close')
+                    }
+                }
+            })
         }
     }
 }) 
