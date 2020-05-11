@@ -59,7 +59,7 @@
         </div>
         <!-- input -->
         <div class="box">
-            <we-input value='张三 zhansan' @change='inputChange'></we-input>
+            <we-input value='张三 zhansan' @change='inputChange' @input='input' @focus='focus' @blur='blur'></we-input>
             <we-input value='张三 zhansan' disabled></we-input>
             <we-input value='张三 zhansan' readonly></we-input>
         </div>
@@ -71,15 +71,14 @@
         <div class="box">
             
             <we-row>
-                <we-col span='10' ><div class="test">span:</div></we-col>
-                <we-col span='10' ><div class="test">span:</div></we-col>
+                <we-col span='12' ><div class="test">span:</div></we-col>
+                <we-col span='12' ><div class="test">span:</div></we-col>
             </we-row>
             
             <we-row gutter='10'>
                 <we-col> <div class="test">gutter:</div></we-col>
                 <we-col> <div class="test">gutter:</div></we-col>
-                <we-col> <div class="test">gutter:</div></we-col>
-                <we-col> <div class="test">gutter:</div></we-col>
+                <we-col> <div class="test">gutter:</div></we-col> 
             </we-row>
             <we-row>
                 <we-col span='5'><div class="test">offset</div></we-col>
@@ -98,8 +97,18 @@
                 <we-col><div class="test">1</div></we-col>
             </we-row>
             <we-row>
-                <we-col :span='2'><div class="test">1</div></we-col>
-                <we-col span='22'><div class="test">1</div></we-col>
+                <we-col span='24':ipad='{span:10,offset:2}' :narrow-pc='{span:8}' :pc='{span:6}' :wide-pc='{span:4}'><div class="test">1</div></we-col>
+                <we-col span='24':ipad='{span:12}' :narrow-pc='{span:8}' :pc='{span:6}' :wide-pc='{span:4}'><div class="test">1</div></we-col>
+                <we-col span='24':ipad='{span:12}' :narrow-pc='{span:8}' :pc='{span:6}' :wide-pc='{span:4}'><div class="test">1</div></we-col>
+                <we-col span='24':ipad='{span:12}' :narrow-pc='{span:8}' :pc='{span:6}' :wide-pc='{span:4}'><div class="test">1</div></we-col>
+                <we-col span='24':ipad='{span:12}' :narrow-pc='{span:8}' :pc='{span:6}' :wide-pc='{span:4}'><div class="test">1</div></we-col>
+                <we-col span='24':ipad='{span:12}' :narrow-pc='{span:8}' :pc='{span:6}' :wide-pc='{span:4}'><div class="test">1</div></we-col>
+                <we-col span='24':ipad='{span:12}' :narrow-pc='{span:8}' :pc='{span:6}' :wide-pc='{span:4}'><div class="test">1</div></we-col>
+                <we-col span='24':ipad='{span:12}' :narrow-pc='{span:8}' :pc='{span:6}' :wide-pc='{span:4}'><div class="test">1</div></we-col>
+                <we-col span='24':ipad='{span:12}' :narrow-pc='{span:8}' :pc='{span:6}' :wide-pc='{span:4}'><div class="test">1</div></we-col>
+                <we-col span='24':ipad='{span:12}' :narrow-pc='{span:8}' :pc='{span:6}' :wide-pc='{span:4}'><div class="test">1</div></we-col>
+                <we-col span='24':ipad='{span:12}' :narrow-pc='{span:8}' :pc='{span:6}' :wide-pc='{span:4}'><div class="test">1</div></we-col>
+                <we-col span='24':ipad='{span:12}' :narrow-pc='{span:8}' :pc='{span:6}' :wide-pc='{span:4}'><div class="test">1</div></we-col>
             </we-row>
         </div>
         <div id="test"></div>

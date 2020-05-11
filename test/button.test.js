@@ -74,4 +74,5 @@ Vue.config.productionTip = false
          vm.$el.click()
          expect(callback).to.have.been.called
      })   
+     console.log('button 测试完成')
  })   

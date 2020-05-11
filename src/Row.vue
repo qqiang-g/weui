@@ -9,6 +9,12 @@ export default {
     props:{
         gutter:{
             type:[Number,String],
+        },
+        align:{
+            type:String,
+            validator (value) {
+                return ['left','right','center'].includes(value)
+            }
         }
     },
     mounted(){
@@ -22,12 +28,18 @@ export default {
                 marginLeft:-this.gutter/2+'px',
                 marginRight:-this.gutter/2+'px'
             }
+        },
+        rowClass () {
+            let {align} = this
+            return [align && `align-${align}`]
         }
+ 
     }
 }
 </script>
 <style lang="scss" scoped>
     .row{
-        display: flex;
+        display: flex;  
+        flex-wrap: wrap;
     }
 </style>

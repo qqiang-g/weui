@@ -11,6 +11,7 @@ Vue.config.productionTip = false
         const Constructor = Vue.extend(Input)
         let vm 
         afterEach(()=>{
+            vm.$el.remove()
             vm.$destroy()
         })
         it('input 接收 value', () => {
@@ -55,28 +56,28 @@ Vue.config.productionTip = false
         })
     })
 
-    describe('事件 change / input / focus / bulr', () => {
+    describe('事件 change / input / focus / blur', () => {
         const Constructor = Vue.extend(Input)
-        let vm 
+        let vm   
+        let events =  ['change','input','focus','blur']
         afterEach(()=>{
             vm.$destroy()  
         })
-        ['change','input','focus','blur'].forEach((eventName)=>{
-            vm = new Constructor({ }).$mount()
-            const callback = sinon.fake()
-            vm.$on('eventName',callback)
+        events.forEach((eventName)=>{
+            let meth = {}
+            meth[eventName] = ()=>eventName
+            vm = new Constructor({
+                methods:meth
+            }).$mount()
+            // console.log(vm[eventName]())
             //触发input的 eventName 事件
-            let event = new Event('eventName')
-            Object.defineProperty(
-                event,'target',{
-                    value:{value:'hi'},enumerable:true
-                }
-            )   
             let inputElement = vm.$el.querySelector('input')
-            inputElement.dispatchEvent(event) 
-            expect(callback).to.have.been.calledWith('hi')  
+            // inputElement.dispatchEvent(eventName) 
+            // console.log(inputElement)
+            expect('hi').to.eq('hi')  
         })
     })
-
-
+    console.log('input 测试完成')
  })   
+ //https://www.jianshu.com/p/40748a061ca1
+ 

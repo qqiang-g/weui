@@ -12,7 +12,7 @@ Vue.component('we-button-group',ButtonGroup)
 Vue.component('we-input',Input)
 Vue.component('we-row',Row)
 Vue.component('we-col',Col)
-new Vue({
+var vm = new Vue({
     el:'#app',
     data () {
         return {
@@ -22,8 +22,22 @@ new Vue({
     },
     methods: {
         inputChange(e){
-            console.log(e)
-        }
+            console.log('inputChange')
+        },
+        change(){
+            console.log('change')
+            
+        },
+        input(){
+            console.log('input')
+        },
+        focus(){
+            console.log('focus')
+            this.$on('ha',()=>'ha')
+        },
+        blur(){
+            console.log(this['focus'])
+        },
     }
 }) 
 import chai from 'chai'
