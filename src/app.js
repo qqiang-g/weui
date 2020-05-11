@@ -10,7 +10,10 @@ import Header from './Header'
 import Content from './Content'
 import Sider from './Sider'
 import Footer from './Footer'
+// import Toast from './Toast'
+import plugin from './plugin'
 
+Vue.use(plugin)
 const components = {
     'we-button':Button,
     'we-icon':Icon,
@@ -33,6 +36,10 @@ var vm = new Vue({
             loading:false,
             message:'你好'
         }
+    },
+    created(){
+        console.log(this)
+        this.$toast('123')
     },
     methods: {
         inputChange(e){

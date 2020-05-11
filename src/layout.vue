@@ -17,7 +17,6 @@ export default {
         getLayout(){
             if(this.$children.find(vm=>vm.$options.name=='WeSider')){
                 this.layoutClass.hisSider = true
-                console.log('side')
                 return
             }
         }
