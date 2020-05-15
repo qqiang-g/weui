@@ -43,7 +43,6 @@ var vm = new Vue({
         },
         change(){
             console.log('change')
-            
         },
         input(){
             console.log('input')
@@ -59,8 +58,7 @@ var vm = new Vue({
             this.$toast('密码错误！！！',{
                 icon:'warning--alt-inverted--filled',
                 position:'middle',
-                autoCloseDelay:5000,
-                autoClose:true,
+                autoClose:5,
                 closeButton:{
                     // text:'关闭',
                     icon:'flag-error',

@@ -35,12 +35,10 @@ export default {
             type:String
         },
         autoClose:{
-            type:Boolean,
-            default:true
-        },
-        autoCloseDelay:{
-            type:Number,
-            default:3000
+            type:[Boolean,Number],
+            validator(value){
+                return value === false || typeof value ==='number'
+            }
         },
         closeButton:{
             type:Object,
@@ -86,7 +84,7 @@ export default {
             if(this.autoClose){
                 setTimeout(() => {
                     this.close()
-                },this.autoCloseDelay)
+                },Number(this.autoClose)*1000)
             }
         },
         onClickClose(){
