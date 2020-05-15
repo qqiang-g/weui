@@ -12,7 +12,11 @@ import Sider from './Sider'
 import Footer from './Footer'
 // import Toast from './Toast'
 import plugin from './plugin'
-
+import Tabs from './Tabs'
+import TabsHead from './Tabs-Head'
+import TabsItem from './Tabs-Item'
+import TabsBody from './Tabs-Body'
+import TabsPane from './Tabs-Pane'
 Vue.use(plugin)
 const components = {
     'we-button':Button,
@@ -25,7 +29,12 @@ const components = {
     'we-header':Header,
     'we-content':Content,
     'we-sider':Sider,
-    'we-footer':Footer
+    'we-tabs':Tabs,
+    'we-tabs-head':TabsHead,
+    'we-tabs-item':TabsItem,
+    'we-tabs-body':TabsBody,
+    'we-tabs-pane':TabsPane,
+    'we-footer':Footer,
 }
 
 var vm = new Vue({

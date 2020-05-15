@@ -44,6 +44,25 @@
 <body>
     <div id="app">
         <div class="box">
+            <we-tabs >
+            <!-- <we-tabs :selected.sync = 'selectedTab'> -->
+                <!-- <we-tabs selected='a' @update:selected ='selectedTab = $event' > -->
+                <we-tabs-head>
+                    <we-tabs-pane name ='a'>1</we-tabs-pane>
+                    <we-tabs-pane name ='b'>2</we-tabs-pane>
+                    <we-tabs-pane name ='c'>3</we-tabs-pane>
+                    <template slot="actions">
+                        actions
+                    </template>
+                </we-tabs-head>
+                <we-tabs-body>
+                    <we-tabs-item name ='a'> a</we-tabs-item>
+                    <we-tabs-item name ='b'> b</we-tabs-item>
+                    <we-tabs-item name ='c'> c</we-tabs-item>
+                </we-tabs-body>
+            </we-tabs>
+        </div>
+        <div class="box">
             <we-icon name="left"></we-icon>
             <we-button icon="zan" icon-position="left" @click='click'>按钮</we-button>
             <we-button icon-position="right" :loading='loading' @click='loading=!loading'>按钮</we-button>
@@ -149,7 +168,6 @@
             </we-layout>
         </div> 
         <div id="test"></div>
-        <div data-v-8ca320="" class="wrapper position-top"><div data-v-8ca320="" class="toast"><svg data-v-53627c="" data-v-8ca320="" class="we-icon icon"><use data-v-53627c="" xlink:href="#w-undefined"></use></svg> <div data-v-8ca320="" class="message"></div> <div data-v-8ca320="" class="line"></div> <div data-v-8ca320=""><span data-v-8ca320="" class="close"><svg data-v-53627c="" data-v-8ca320="" class="we-icon icon"><use data-v-53627c="" xlink:href="#w-flag-error"></use></svg></span></div></div></div>
 
     </div> 
 </body>
