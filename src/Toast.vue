@@ -25,12 +25,12 @@ export default {
         'we-icon':Icon
     },
     props:{
-        text:{
-            type:String,
-        },
-        type:{
-            type:String
-        },
+        // text:{
+        //     type:String,
+        // },
+        // type:{
+        //     type:String
+        // },
         icon:{
             type:String
         },
