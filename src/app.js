@@ -58,14 +58,14 @@ var vm = new Vue({
             this.$toast('密码错误！！！',{
                 icon:'warning--alt-inverted--filled',
                 position:'middle',
-                autoClose:5,
-                closeButton:{
+                autoClose:0.1,
+                // closeButton:{
                     // text:'关闭',
-                    icon:'flag-error',
-                    callback(){
-                        console.log('close')
-                    }
-                }
+                    // icon:'flag-error',
+                    // callback(){
+                        // console.log('close')
+                    // }
+                // }
             })
         }
     }
