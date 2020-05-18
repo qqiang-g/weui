@@ -4,11 +4,13 @@
     </div>
 </template>
 <script>
+import Vue from 'vue'
 export default{
     name:'WeTabs',
     props:{
         selected:{
             type:String,
+            required:true
         },
         direction:{
             type:String,
@@ -18,13 +20,23 @@ export default{
         }
         
     },
+    data () {
+        return {
+            eventBus:new Vue()
+        }
+    },
+    provide(){
+        return {
+            eventBus:this.eventBus
+        }
+    },
     created(){
-        this.$emit('update:selected',)
+        this.$emit('update:selected','xxx')
     }
 }
 </script>
 <style lang="scss" scoped>
 .tabs{
-
+  
 }
 </style>

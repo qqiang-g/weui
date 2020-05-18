@@ -43,7 +43,8 @@ var vm = new Vue({
     data () {
         return {
             loading:false,
-            message:'你好'
+            message:'你好',
+            selectedTab:'1'
         }
     },
     methods: {

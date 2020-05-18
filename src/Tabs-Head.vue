@@ -6,8 +6,11 @@
 </template>
 <script>
 export default{
-    name:'WeTabsHead'
-}
+    name:'WeTabsHead',
+    inject:['eventBus'],
+    created () {
+    }
+}   
 </script>
 <style lang="scss" scoped>
 .tabs-head{

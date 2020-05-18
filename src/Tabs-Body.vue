@@ -5,7 +5,11 @@
 </template>
 <script>
 export default{
-    name:'WeTabsBody'
+    name:'WeTabsBody',
+    inject:['eventBus'],
+    created () {
+        console.log(this.eventBus)
+    }
     
 }
 </script>

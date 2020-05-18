@@ -44,21 +44,21 @@
 <body>
     <div id="app">
         <div class="box">
-            <we-tabs >
-            <!-- <we-tabs :selected.sync = 'selectedTab'> -->
+            <!-- <we-tabs > -->
+            <we-tabs :selected.sync = 'selectedTab' >
                 <!-- <we-tabs selected='a' @update:selected ='selectedTab = $event' > -->
                 <we-tabs-head>
-                    <we-tabs-pane name ='a'>1</we-tabs-pane>
-                    <we-tabs-pane name ='b'>2</we-tabs-pane>
-                    <we-tabs-pane name ='c'>3</we-tabs-pane>
                     <template slot="actions">
-                        actions
+                        设置
                     </template>
+                    <we-tabs-item name ='a' disabled> a</we-tabs-item>
+                    <we-tabs-item name ='b'> <we-icon  name="setting"></we-icon> b</we-tabs-item>
+                    <we-tabs-item name ='c'> c</we-tabs-item>
                 </we-tabs-head>
                 <we-tabs-body>
-                    <we-tabs-item name ='a'> a</we-tabs-item>
-                    <we-tabs-item name ='b'> b</we-tabs-item>
-                    <we-tabs-item name ='c'> c</we-tabs-item>
+                    <we-tabs-pane name ='a' >1</we-tabs-pane>
+                    <we-tabs-pane name ='b'> 2</we-tabs-pane>
+                    <we-tabs-pane name ='c'>3</we-tabs-pane>
                 </we-tabs-body>
             </we-tabs>
         </div>
