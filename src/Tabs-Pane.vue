@@ -1,5 +1,5 @@
 <template>
-    <div class="tabs-body">
+    <div class="tabs-body" :class="classes" v-if="active">
         <slot></slot>
     </div>
 </template>
@@ -7,16 +7,40 @@
 export default{
     name:'WeTabsBody',
     inject:['eventBus'],
-    created () {
+    data(){
+        return{
+            active:false
+        }
+    },
+    props:{
+        name:{
+            type:String,
+            required:true
+        }
+    },
+    created(){
         this.eventBus.$on('update:selected',(name)=>{
-            console.log('内容'+name)
+            this.active = this.name === name
         })
+    },
+    mounted () {
+        this.eventBus.$on('update:selected',(name)=>{
+        })
+    },
+    computed:{
+        classes(){
+            return{
+                active:this.active
+            }
+        }
     }
     
 }
 </script>
 <style lang="scss" scoped>
 .tabs-body{
-    
+    &.active{
+        // background: #123;
+    }
 }
 </style>

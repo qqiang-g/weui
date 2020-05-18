@@ -31,7 +31,9 @@ export default{
         }
     },
     created(){
-        this.$emit('update:selected','xxx')
+        this.$emit('update:selected','this')
+        this.eventBus.$emit('update:selected','EVENT')
+
     }
 }
 </script>

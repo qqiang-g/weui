@@ -8,7 +8,6 @@ export default{
     name:'WeTabsBody',
     inject:['eventBus'],
     created () {
-        console.log(this.eventBus)
     }
     
 }
