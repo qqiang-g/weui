@@ -25,11 +25,13 @@ export default{
 <style lang="scss" scoped>
 $tabs-height: 40px;
 $blur:#2278ce;
+$border-color:#c6c6c6;
 .tabs-head{
     display: flex;
     height: $tabs-height; 
     justify-content: flex-start;
     position: relative;
+    border-bottom: 1px solid $border-color ;
     >.line{
         position: absolute;
         bottom: 0;
@@ -38,6 +40,10 @@ $blur:#2278ce;
     }
     >.actions{
         margin-left: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 1em;
     }
 }
 </style>

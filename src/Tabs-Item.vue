@@ -31,20 +31,23 @@ export default{
     },
     methods:{
         xxx(){
+            if(this.disabled)return
             this.eventBus.$emit('update:selected',this.name,this)
         }
     },
     computed:{
         classes(){
             return{
-                active:this.active
+                active:this.active,
+                disabled:this.disabled
             }
         }
     }
-}
+} 
 </script>
 <style lang="scss" scoped>
 $blur:#2278ce;
+$disabled-color:grey;
 .tabs-item{
     flex-shrink: 0;
     padding: 0 1em;
@@ -54,6 +57,10 @@ $blur:#2278ce;
     align-items: center;
     &.active{
         color:$blur
+    }
+    &.disabled{
+        color:$disabled-color ;
+        cursor: not-allowed;
     }
 }
 </style>
