@@ -44,10 +44,11 @@ var vm = new Vue({
         return {
             loading:false,
             message:'你好',
-            selectedTab:'1'
+            selectedTab:'a'
         }
     },
     methods: {
+
         inputChange(e){
             console.log('inputChange')
         },

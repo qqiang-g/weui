@@ -40,7 +40,7 @@ export default{
 <style lang="scss" scoped>
 .tabs-body{
     &.active{
-        // background: #123;
+        background: #7fb5eb00;
     }
 }
 </style>

@@ -30,10 +30,17 @@ export default{
             eventBus:this.eventBus
         }
     },
-    created(){
-        this.$emit('update:selected','this')
-        this.eventBus.$emit('update:selected','EVENT')
-
+    mounted(){
+        this.$children.forEach((vm) => {
+        if (vm.$options.name === 'WeTabsHead') {
+          vm.$children.forEach((childVm) => {
+            if (childVm.$options.name === 'WeTabsItem'
+              && childVm.name === this.selected) {
+              this.eventBus.$emit('update:selected', this.selected, childVm)
+            }
+          })
+        }
+      })
     }
 }
 </script>
