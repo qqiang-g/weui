@@ -6,6 +6,7 @@
                 <slot v-if="!enableHtml"></slot>
                 <div v-else v-html="$slots.default[0]"></div>
             </div>
+            
             <div v-if="!autoClose" class="line" ref="line"></div>
             <div v-if="!autoClose">
                 <span class="close" v-if="closeButton" @click="onClickClose" >

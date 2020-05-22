@@ -13,10 +13,8 @@ export default{
     inject:['eventBus'],
     mounted () {
         this.eventBus.$on('update:selected',(item,vm)=>{
-            console.log(vm.$el.getBoundingClientRect())
             const {width,left} = vm.$el.getBoundingClientRect()
             this.$refs.line.style.width = width+'px'
-            console.log(this.$refs.line.getBoundingClientRect())
             this.$refs.line.style.transform = `translateX(${left}px)`
         })
     }

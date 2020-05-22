@@ -31,15 +31,22 @@ export default{
         }
     },
     mounted(){
+        console.log(this.$el.children[1])
+        this.$el.children.forEach(item=>{
+            console.log(item)
+        })
         this.$children.forEach((vm) => {
-        if (vm.$options.name === 'WeTabsHead') {
-          vm.$children.forEach((childVm) => {
-            if (childVm.$options.name === 'WeTabsItem'
-              && childVm.name === this.selected) {
-              this.eventBus.$emit('update:selected', this.selected, childVm)
+            // if(['WeTabsHead','WeTabsBody'].indexOf(vm.$options.name)<0){
+            //     console.warn('tabs 的子组件应该是 tabs-head 和 tabs-body 子组件 ，但你没有写子组件')
+            // }
+            if (vm.$options.name === 'WeTabsHead') {
+            vm.$children.forEach((childVm) => {
+                if (childVm.$options.name === 'WeTabsItem'
+                && childVm.name === this.selected) {
+                this.eventBus.$emit('update:selected', this.selected, childVm)
+                }
+            })
             }
-          })
-        }
       })
     }
 }
