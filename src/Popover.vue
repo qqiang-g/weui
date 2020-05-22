@@ -1,5 +1,5 @@
 <template>
-    <div class="popover" @click="xxx">
+    <div class="popover" @click.stop="xxx">
         <div class="content-wrapper" v-if="visible">
             <slot name="content" ></slot>
         </div>
@@ -14,10 +14,21 @@ export default {
             visible:false,
         }
     },
+    mounted(){
+        
+    },
     methods:{
         xxx(){
             this.visible = !this.visible
-        }
+            if(this.visible === true)
+                    console.log('添加监听')
+                 document.addEventListener('click',function x(){
+                     console.log('关闭popover')
+                    this.visible = false
+                    // document.removeEventListener('click',x)
+                    console.log('next')
+                }.bind(this),{capture:true,once:true})
+        }  
     }
 }
 </script>
