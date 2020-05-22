@@ -17,6 +17,7 @@ import TabsHead from './Tabs-Head'
 import TabsItem from './Tabs-Item'
 import TabsBody from './Tabs-Body'
 import TabsPane from './Tabs-Pane'
+import Popover from './Popover'
 Vue.use(plugin)
 const components = {
     'we-button':Button,
@@ -35,6 +36,7 @@ const components = {
     'we-tabs-body':TabsBody,
     'we-tabs-pane':TabsPane,
     'we-footer':Footer,
+    "we-popover":Popover,
 }
 
 var vm = new Vue({
