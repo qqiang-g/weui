@@ -31,22 +31,30 @@ export default {
             document.body.appendChild(conetntWrapper)
             let {width, height,top, left} =triggerWrapper.getBoundingClientRect()
             let {height:height2} = conetntWrapper.getBoundingClientRect()
-            if(this.position === 'top'){
-                conetntWrapper.style.left = left+window.scrollX +'px'
-                conetntWrapper.style.top = top+window.scrollY +'px'
+            const positionMap = {
+                top:{ left:left+window.scrollX, top:top+window.scrollY },
+                bottom:{ left:left+window.scrollX, top:top+height+window.scrollY },
+                left:{ left:left+window.scrollX, top:top-(height2-height)/2+window.scrollY },
+                right:{ left:left + width +window.scrollX, top:top-(height2-height)/2+window.scrollY }
             }
-            if(this.position === 'bottom'){
-                conetntWrapper.style.left = left+window.scrollX +'px'
-                conetntWrapper.style.top = top+height+window.scrollY +'px'
-            }
-            if(this.position === 'left'){
-                conetntWrapper.style.left = left+window.scrollX +'px'
-                conetntWrapper.style.top = top-(height2-height)/2+window.scrollY +'px'
-            }
-            if(this.position === 'right'){
-                conetntWrapper.style.left = left + width +window.scrollX +'px'
-                conetntWrapper.style.top = top-(height2-height)/2+window.scrollY +'px'
-            }
+                conetntWrapper.style.left =positionMap[this.position].left +'px'
+                conetntWrapper.style.top = positionMap[this.position].top +'px'
+            // if(this.position === 'top'){
+            //     conetntWrapper.style.left = left+window.scrollX +'px'
+            //     conetntWrapper.style.top = top+window.scrollY +'px'
+            // }
+            // if(this.position === 'bottom'){
+            //     conetntWrapper.style.left = left+window.scrollX +'px'
+            //     conetntWrapper.style.top = top+height+window.scrollY +'px'
+            // }
+            // if(this.position === 'left'){
+            //     conetntWrapper.style.left = left+window.scrollX +'px'
+            //     conetntWrapper.style.top = top-(height2-height)/2+window.scrollY +'px'
+            // }
+            // if(this.position === 'right'){
+            //     conetntWrapper.style.left = left + width +window.scrollX +'px'
+            //     conetntWrapper.style.top = top-(height2-height)/2+window.scrollY +'px'
+            // }
             
         },
         onClickDocument(e){
@@ -163,7 +171,7 @@ $border-tadius:4px;
         }
     }
     &.position-right{
-        transform: translateX(-100%);
+        margin-left: 10px;
         &::after,&::before{
             content: '';
             display: block;
