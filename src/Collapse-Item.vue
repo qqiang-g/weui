@@ -14,7 +14,10 @@ export default {
     props:{
         title:{
             title:String,
-            required: true
+            required: true,
+        },
+        name:{
+            type:String
         }
     },
     data(){
@@ -24,24 +27,22 @@ export default {
     },
     inject:['eventBus'],
     mounted(){
-        this.eventBus && this.eventBus.$on('update:selected',(vm)=>{
-            if(vm!==this){
-                this.open = false
+        this.eventBus && this.eventBus.$on('update:selected',(names)=>{
+            if(names.indexOf(this.name)>=0){
+                    this.open = true
+            }else{
+                    this.open = false
             }
         })
     },
     methods:{
         toggle(){
             if(this.open){
-                this.open = false
+                this.eventBus && this.eventBus.$emit('update:removeSelected',this.name)
             }else{
-                this.open =true
-                this.eventBus && this.eventBus.$emit('update:selected',this)
+                this.eventBus && this.eventBus.$emit('update:addSelected',this.name)
             }
         },
-        close(){
-            this.open = false
-        }
     }
 }
 </script>

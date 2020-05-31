@@ -50,7 +50,8 @@ var vm = new Vue({
         return {
             loading:false,
             message:'你好',
-            selectedTab:'a'
+            selectedTab:'a',
+            selectedTabs:['c','a']
         }
     },
     methods: {

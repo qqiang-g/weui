@@ -1,6 +1,7 @@
 <template>
 <div class="collapse">
     <slot></slot>
+    {{selected}}
 </div>
 </template>
 <script>
@@ -9,22 +10,43 @@ export default {
     name:'CollapseItem',
     data () {
         return {
-            eventBus:new Vue()
+            eventBus:new Vue(),
+            selectedArray:[]
         }
     },
     props:{
         single:{
             type:Boolean,
             default:false
+        },
+        selected:{
+            type:Array,
         }
     },
     provide(){
-        if(this.single){
             return{
                 eventBus:this.eventBus
             }
-        }
-        
+    },
+    mounted(){
+        this.eventBus.$emit('update:selected',this.selected)
+        this.eventBus.$on('update:addSelected',(name)=>{
+            let selectedCopy = JSON.parse(JSON.stringify(this.selected))
+            if(this.single){
+                selectedCopy = [name]
+            }else{
+                selectedCopy.push(name)
+            }
+            this.$emit('update:selected',selectedCopy)
+            this.eventBus.$emit('update:selected',selectedCopy)
+        })
+        this.eventBus.$on('update:removeSelected',(name)=>{
+            let selectedCopy = JSON.parse(JSON.stringify(this.selected))
+            let index = selectedCopy.indexOf(name)
+            selectedCopy.splice(index,1)
+            this.$emit('update:selected',selectedCopy)
+            this.eventBus.$emit('update:selected',selectedCopy)
+        })
     }
     
 }
