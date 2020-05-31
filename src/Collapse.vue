@@ -29,7 +29,9 @@ export default {
             }
     },
     mounted(){
+        //初始状态通知子组件用户默认选中的值
         this.eventBus.$emit('update:selected',this.selected)
+        //监听组跟新选中的值
         this.eventBus.$on('update:addSelected',(name)=>{
             let selectedCopy = JSON.parse(JSON.stringify(this.selected))
             if(this.single){
@@ -40,6 +42,7 @@ export default {
             this.$emit('update:selected',selectedCopy)
             this.eventBus.$emit('update:selected',selectedCopy)
         })
+        //监听组件移除选中的值
         this.eventBus.$on('update:removeSelected',(name)=>{
             let selectedCopy = JSON.parse(JSON.stringify(this.selected))
             let index = selectedCopy.indexOf(name)

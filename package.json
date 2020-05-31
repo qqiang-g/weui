@@ -10,7 +10,9 @@
     "publish": "npm run bulid && npm publish",
     "dev-test": "npx parcel watch test/* --no-cache",
     "dev-karma": "npx karma start",
-    "test": "npx parcel build test/* --no-cache --no-minify && npx karma start --single-run"
+    "test": "npx parcel build test/* --no-cache --no-minify && npx karma start --single-run",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
   },
   "repository": {
     "type": "git",
@@ -47,7 +49,8 @@
     "sass": "^1.26.5",
     "sinon": "^9.0.2",
     "sinon-chai": "^3.5.0",
-    "vue-template-compiler": "^2.6.11"
+    "vue-template-compiler": "^2.6.11",
+    "vuepress": "^1.5.0"
   },
   "alias": {
     "vue": "./node_modules/vue/dist/vue.common.js"
