@@ -18,6 +18,8 @@ import TabsItem from './Tabs-Item'
 import TabsBody from './Tabs-Body'
 import TabsPane from './Tabs-Pane'
 import Popover from './Popover'
+import Collapse from './Collapse' 
+import CollapseItem from './Collapse-Item'
 Vue.use(plugin)
 const components = {
     'we-button':Button,
@@ -37,6 +39,8 @@ const components = {
     'we-tabs-pane':TabsPane,
     'we-footer':Footer,
     "we-popover":Popover,
+    'we-collapse':Collapse,
+    'we-collapse-item':CollapseItem
 }
 
 var vm = new Vue({
