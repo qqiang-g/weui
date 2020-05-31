@@ -4,8 +4,28 @@
 </div>
 </template>
 <script>
+import Vue from 'vue'
 export default {
     name:'CollapseItem',
+    data () {
+        return {
+            eventBus:new Vue()
+        }
+    },
+    props:{
+        single:{
+            type:Boolean,
+            default:false
+        }
+    },
+    provide(){
+        if(this.single){
+            return{
+                eventBus:this.eventBus
+            }
+        }
+        
+    }
     
 }
 </script>
