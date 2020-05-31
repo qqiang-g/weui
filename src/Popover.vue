@@ -1,5 +1,5 @@
 <template>
-    <div class="popover" @click.stop="onClick" ref="popover">
+    <div class="popover" ref="popover">
         <div ref="conetntWrapper" class="content-wrapper" :class="{[`position-${position}`]:true}" v-if="visible">
             <slot name="content" ></slot>
         </div>
@@ -23,6 +23,29 @@ export default {
             validator:(value)=>{
                 return ['top','right','bottom','left'].indexOf(value)>=0
             }    
+        },
+        trigger:{
+            type:String,
+            default:'click',
+            validator:(value)=>{
+                return ['click','hover'].indexOf(value)>=0    
+            }
+        }
+    },
+    mounted(){
+        if(this.trigger == 'click'){
+            this.$refs.popover.addEventListener('click',this.onClick)
+        }else{
+            this.$refs.popover.addEventListener('mouseenter',this.open)
+            this.$refs.popover.addEventListener('mouseleave',this.close)
+        }
+    },
+    destroyed(){
+        if(this.trigger == 'click'){
+            this.$refs.popover.removeEventListener('click',)
+        }else{
+            this.$refs.popover.removeEventListener('mouseenter',this.open())
+            this.$refs.popover.removeEventListener('mouseleave',this.close())
         }
     },
     methods:{
@@ -37,57 +60,35 @@ export default {
                 left:{ left:left+window.scrollX, top:top-(height2-height)/2+window.scrollY },
                 right:{ left:left + width +window.scrollX, top:top-(height2-height)/2+window.scrollY }
             }
-                conetntWrapper.style.left =positionMap[this.position].left +'px'
-                conetntWrapper.style.top = positionMap[this.position].top +'px'
-            // if(this.position === 'top'){
-            //     conetntWrapper.style.left = left+window.scrollX +'px'
-            //     conetntWrapper.style.top = top+window.scrollY +'px'
-            // }
-            // if(this.position === 'bottom'){
-            //     conetntWrapper.style.left = left+window.scrollX +'px'
-            //     conetntWrapper.style.top = top+height+window.scrollY +'px'
-            // }
-            // if(this.position === 'left'){
-            //     conetntWrapper.style.left = left+window.scrollX +'px'
-            //     conetntWrapper.style.top = top-(height2-height)/2+window.scrollY +'px'
-            // }
-            // if(this.position === 'right'){
-            //     conetntWrapper.style.left = left + width +window.scrollX +'px'
-            //     conetntWrapper.style.top = top-(height2-height)/2+window.scrollY +'px'
-            // }
-            
+            conetntWrapper.style.left =positionMap[this.position].left +'px'
+            conetntWrapper.style.top = positionMap[this.position].top +'px'
         },
         onClickDocument(e){
-            console.log(e.target)
-            if(this.$refs.popover&& (this.$refs.popover === e.target||this.$refs.conetntWrapper.contains(e.target)))return
-                this.close()
+            if(this.$refs.popover&&(this.$refs.popover===e.target||this.$refs.popover.contains(e.target))) return;
+            if(this.$refs.conetntWrapper&&(this.$refs.conetntWrapper===e.target||this.$refs.conetntWrapper.contains(e.target))) return;
+            this.close()
         },
-        show(){
+        open(){
             this.visible = true
             this.$nextTick(()=>{
                 this.positionContent()
                 document.addEventListener('click',this.onClickDocument)
             })
-            console.log('show')
         },
         close(){
             this.visible = false
             document.removeEventListener('click',this.onClickDocument)
-            console.log('close')
         },
-        onClick(event){
-            if(this.$refs.triggerWrapper.contains(event.target)){
-                if(this.visible === true) {
+        onClick(e){
+            if(this.$refs.triggerWrapper.contains(e.target)){
+                if(this.visible == true){
                     this.close()
                 }else{
-                    this.show()
+                    this.open()
                 }
-            }else{
-                this.close()
             }
-            
-        }  
-    }
+        }
+    },
 }
 </script>
 <style lang="scss" scoped>
@@ -115,6 +116,7 @@ $border-tadius:4px;
             content: '';
             display: block;
             border:10px solid transparent;
+            border-bottom-width:0 ;
             position: absolute;
             width: 0;
             height: 0;
@@ -135,6 +137,7 @@ $border-tadius:4px;
             content: '';
             display: block;
             border:10px solid transparent;
+            border-top-width:0 ;
             position: absolute;
             width: 0;
             height: 0;
@@ -156,6 +159,7 @@ $border-tadius:4px;
             content: '';
             display: block;
             border:10px solid transparent;
+            border-right-width:0 ;
             position: absolute;
             width: 0;
             height: 0;
@@ -176,6 +180,7 @@ $border-tadius:4px;
             content: '';
             display: block;
             border:10px solid transparent;
+            border-left-width:0 ;
             position: absolute;
             width: 0;
             height: 0;
