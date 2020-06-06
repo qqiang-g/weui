@@ -38,11 +38,16 @@
         .layoutitem{
             border: 1px solid #666;
             min-height: 50px;
-        }
+        }  
     </style>   
 </head>
 <body>
     <div id="app">
+        <div class="box">
+            <we-cascader :source='source'>
+
+            </we-cascader>
+        </div>
         <div class="box">
             <we-collapse single :selected.sync="selectedTabs">
                 <we-collapse-item title="标题1" name='a'> 内容一 </we-collapse-item>
