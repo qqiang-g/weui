@@ -1,19 +1,29 @@
 <template>
-    <div class="cascaderItem">
+    <div class="cascaderItem" :style="{height:height}">
         <div class="left">
-                <div class="label" @click="leftSelected = item" v-for="item in items" style="border:1px solid red;" :key="item.name">{{item.name}} </div>
+                <div class="label" @click="leftSelected = item" v-for="item in items" :key="item.name">
+                    {{item.name}} 
+                <Icon  class='icon' v-if="item.children" name='right'></Icon>
+                </div>
             </div>
             <div class="right" v-if="leftSelected">
-                <CsacaderItems :items='rightItems'></CsacaderItems>
+                <CsacaderItems :items='rightItems' :height='height'></CsacaderItems>
             </div>
     </div>
 </template>
 <script>
+import Icon from './Icon'
 export default  {
     name:'CsacaderItems',
+    components:{
+        Icon
+    },
     props: {
         items:{
             type:Array
+        },
+        height:{
+            type:String
         }
     },
     data(){
@@ -31,12 +41,27 @@ export default  {
 }
 </script>
 <style lang="scss" scoped>
+@import 'var';
 .cascaderItem{
     display: flex;
     align-items:flex-start;
     justify-content: flex-start;
-    & .left{
-        border: 1px solid #123;
+    height: 100px;
+    .left{
+        height: 100%;
+        padding: .3em 0;
+    }
+    .right{
+        height: 100%;
+        border-left: 1px solid $border-color-light;
+    }
+    .label{
+        padding:.3em 1em;
+        display: flex;
+        align-items: center;
+        .icon{
+            margin-left: .3rem;
+        }
     }
 }
 </style>

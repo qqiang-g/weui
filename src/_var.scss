@@ -3,6 +3,7 @@ $blur:#2278ce;
 $border-color-hover:#666;
 $border-color-hover:#666;
 $border-color:#999;
+$border-color-light:lighten($border-color,35%);
 $border-radius:4px;
 $box-shadow-color:#00000050;
 $button-active-bg:#eee;
@@ -19,3 +20,6 @@ $toast-bg:#00000090;
 $toast-border-radius:4px;
 $toast-color:#fff;
 $toast-min-height: 40px;
+.box-shadow{
+    box-shadow: 0 0 5px rgba(0,0,0,0.15);
+}
