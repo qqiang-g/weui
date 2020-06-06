@@ -47,8 +47,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-$grey:#ddd;
-$border-radius:4px;
+@import 'var';
 .collapseItem{
     >.title{
         border: 1px solid $grey;

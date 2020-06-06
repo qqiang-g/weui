@@ -92,8 +92,8 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-$border-color:#333;
-$border-tadius:4px;
+
+@import 'var';
 .popover{
     display: inline-block;
     position: relative;

@@ -102,11 +102,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-    $font-size:14px;
-    $toast-min-height: 40px;
-    $toast-bg:#00000090;
-    $toast-color:#fff;
-    $toast-border-radius:4px;
+    @import 'var';
     @keyframes fade-in {
         0%{opacity: 0;transform: translateY(100%);}
         100% {opacity: 1;transform: translateY(0%)}
