@@ -1,32 +1,50 @@
 <template>
     <div class="cascader">
-        <div class="trigger">
+        <div class="trigger" @click="popovserVisible=!popovserVisible">
             <slot></slot>
         </div>
-        <div class="popover">
-            <div v-for="(item,index) in source" :key="index">
-                <CascaderItem :sourceItem = "item"></CascaderItem>
-            </div>
+        <div class="popover" v-if="popovserVisible">
+            <CascaderItems :items = "source" />
         </div>
     </div>
 </template>
 <script>
-import CascaderItem from './Cascader-Item'
+import CascaderItems from './Cascader-Items'
 export default {
     name:'Cascader',
     components:{
-        "CascaderItem":CascaderItem
+        "CascaderItems":CascaderItems
     },
     props:{
         source:{
             type:Array,
         }
-    }
+    },
+    data(){
+        return{
+            popovserVisible:false,
+            
+        }
+    },
 }
 </script>
 <style scoped lang='scss'>
 @import 'var';
     .cascader{
-
+        .trigger{
+            border: 1px solid #123;
+            height: 32px;
+            width: 100px;
+        }
+        .popover{
+            max-height: 200px;
+            border: 1px solid #f5f;
+            position: flex;
+            .label{
+                white-space: nowrap;
+            }
+        }
     }
+
+    
 </style>

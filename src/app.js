@@ -59,8 +59,7 @@ var vm = new Vue({
                 {
                     name:'浙江',
                     children:[
-                        { 
-                            name:'杭州',
+                        {  name:'杭州',
                             children:[
                                 {name:'上城区'},
                                 {name:'下城区'},
@@ -71,7 +70,9 @@ var vm = new Vue({
                         {name:'湖州'}
                     ]
                 },
-                {name:'福建',children:[{name:'福州'},{name:'厦门'},{name:'三明'},{name:'泉州'}]}
+                {name:'福建',children:[{name:'福州'},{name:'厦门'},{name:'三明'},{name:'泉州'}]},
+                {name:'河南',children:[ {name:'郑州',children:[{name:'金水'},{nane:'二七'}]}, {name:'洛阳'}
+                ]}
             ]
         }
     },
