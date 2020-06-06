@@ -12,10 +12,12 @@ module.exports = {
         sidebar: [
            {
                title: '入门',
+               collapsable: false,
                children:[ '/install/', '/get_started/',]
            },
             {
                 title:'组件',
+                collapsable: false,
                 children: [
                     '/components/button',
                     '/components/grid',
