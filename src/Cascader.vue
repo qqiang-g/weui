@@ -5,7 +5,7 @@
       {{ popoverHeight }}
     </div>
     <div class="popover-wrapper" v-if="popovserVisible">
-      <CascaderItems class="popover" :height="popoverHeight" :items="source" />
+      <CascaderItems class="popover" :selected="selected" @update:selected='onUpdateSelected' :height="popoverHeight" :items="source" />
     </div>
   </div>
 </template>
@@ -22,12 +22,22 @@ export default {
     },
     popoverHeight: {
       type: String
+    },
+    selected: {
+      type: Array,
+      default: () =>[]
     }
   },
   data() {
     return {
-      popovserVisible: false
+      popovserVisible: true
     };
+  },
+  methods:{
+    onUpdateSelected(newSelected){
+      console.log(newSelected)
+      this.$emit('update:selected',newSelected)
+    }
   }
 };
 </script>

@@ -1,18 +1,25 @@
 <template>
   <div class="cascaderItem" :style="{ height: height }">
+    
     <div class="left">
       <div
         class="label"
-        @click="leftSelected = item"
-        v-for="item in items"
-        :key="item.name"
+        v-for="(item,index) in items"
+        @click="onClickLabel(item)"
+        :key="index"
       >
         {{ item.name }}
         <Icon class="icon" v-if="item.children" name="right"></Icon>
       </div>
     </div>
-    <div class="right" v-if="leftSelected">
-      <CsacaderItems :items="rightItems" :height="height"></CsacaderItems>
+    <div class="right" v-if="rightItems">
+      <CsacaderItems 
+        :selected="selected" 
+        :items="rightItems" 
+        :height="height" 
+        :level="level+1"
+        @update:selected="onUpdateSelected"
+      ></CsacaderItems>
     </div>
   </div>
 </template>
@@ -29,6 +36,14 @@ export default {
     },
     height: {
       type: String
+    },
+    selected: {
+      type: Array,
+      default: () =>[]
+    },
+    level: {
+      type: Number,
+      default: 0
     }
   },
   data() {
@@ -36,11 +51,26 @@ export default {
       leftSelected: null
     };
   },
+  mounted(){
+    console.log(this.items)
+  },
   computed: {
     rightItems() {
-      if (this.leftSelected && this.leftSelected.children !== undefined)
-        return this.leftSelected.children;
+      let currentSelected = this.selected[this.level]
+      if (currentSelected && currentSelected.children)
+        return currentSelected.children;
       else return null;
+    }
+  },
+  methods:{
+    onClickLabel(item){
+      let copy = JSON.parse(JSON.stringify(this.selected))
+      copy[this.level] = item
+      this.$emit('update:selected',copy)
+      console.log(item)
+    },
+    onUpdateSelected(newSelected){
+      this.$emit("update:selected",newSelected)
     }
   }
 };
@@ -59,7 +89,7 @@ export default {
   .right {
     height: 100%;
     border-left: 1px solid $border-color-light;
-  }
+  } 
   .label {
     padding: 0.3em 1em;
     display: flex;
