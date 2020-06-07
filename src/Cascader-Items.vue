@@ -52,9 +52,9 @@ export default {
     };
   },
   mounted(){
-    console.log(this.items)
   },
   computed: {
+    //计算是否渲染right
     rightItems() {
       let currentSelected = this.selected[this.level]
       if (currentSelected && currentSelected.children)
@@ -63,12 +63,14 @@ export default {
     }
   },
   methods:{
+    //选中的节点
     onClickLabel(item){
       let copy = JSON.parse(JSON.stringify(this.selected))
       copy[this.level] = item
       copy.splice(this.level+1)
       this.$emit('update:selected',copy)
     },
+    //更新节点
     onUpdateSelected(newSelected){
       this.$emit("update:selected",newSelected)
     }
@@ -85,6 +87,7 @@ export default {
   .left {
     height: 100%;
     padding: 0.3em 0;
+    overflow: auto;
   }
   .right {
     height: 100%;

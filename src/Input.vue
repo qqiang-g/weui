@@ -51,7 +51,7 @@ export default {
     margin-right: 0.5em;
   }
   > input {
-    height: $height;
+    height: $input-height;
     border: 1px solid $border-color;
     border-radius: $border-radius;
     padding: 0 8px;
