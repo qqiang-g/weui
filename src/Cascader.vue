@@ -5,7 +5,13 @@
       <Input :value="result" />
     </div>
     <div class="popover-wrapper" v-if="popovserVisible">
-      <CascaderItems class="popover" :selected="selected" @update:selected='onUpdateSelected' :height="popoverHeight" :items="source" />
+      <CascaderItems class="popover" 
+        :selected="selected" 
+        @update:selected='onUpdateSelected' 
+        :height="popoverHeight" 
+        :items="source" 
+        :load-date='loadData'
+      />
     </div>
   </div>
 </template>
@@ -64,7 +70,10 @@ export default {
         }
       }
       //回调用户传递过来的数据
-      this.loadData(lastItem,updateSource)
+      if(!lastItem.isLeaf){
+        this.loadData && this.loadData(lastItem,updateSource)
+      }
+
     }
   },
   computed:{

@@ -8,8 +8,10 @@
         @click="onClickLabel(item)"
         :key="index"
       >
-        {{ item.name }}
-        <Icon class="icon" v-if="item.children" name="right"></Icon>
+        <span class="name">
+          {{ item.name }}
+        </span>
+        <Icon class="icon" v-if="rightArrowVisible(item)" name="right"></Icon>
       </div>
     </div>
     <div class="right" v-if="rightItems">
@@ -44,6 +46,9 @@ export default {
     level: {
       type: Number,
       default: 0
+    },
+    loadData: {
+      type:Function
     }
   },
   data() {
@@ -60,9 +65,12 @@ export default {
       if (currentSelected && currentSelected.children)
         return currentSelected.children;
       else return null;
-    }
+    },
   },
   methods:{
+    rightArrowVisible(item){
+      return this.loadData ? !item.isLeaf : item.children
+    },
     //选中的节点
     onClickLabel(item){
       let copy = JSON.parse(JSON.stringify(this.selected))
@@ -94,11 +102,19 @@ export default {
     border-left: 1px solid $border-color-light;
   } 
   .label {
-    padding: 0.3em 1em;
+    padding: 0.5em 1em;
     display: flex;
     align-items: center;
+    cursor: pointer;
+    &:hover{
+      background: $grey;
+    }
+    >.name{
+      padding-right: .5em;
+      user-select: none;
+    }
     .icon {
-      margin-left: 0.3rem;
+      margin-left: auto;
     }
   }
 }

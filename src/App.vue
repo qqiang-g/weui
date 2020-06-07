@@ -6,7 +6,6 @@
       :selected.sync='selected' 
       :source.sync="source" 
       popover-height="300px"
-      :load-data="loadData"
     ></we-cascader>
     </div>
   </div>
@@ -25,14 +24,20 @@ export default {
   },
   data() {
     return {
-      source:[], 
+      source:[
+        {name:'1',id:1,children:[
+          {name:'2', id:2,children:[
+            {name:'3',id:3}
+          ]}
+        ]}
+      ], 
       selected:[]
     };
   },
   created(){
-    this.ajax2(0).then(result=>{
-      this.source = result
-    })
+    // this.ajax2(0).then(result=>{
+    //   this.source = result
+    // })
   },
   methods:{
     loadData(node,callback){
@@ -47,6 +52,13 @@ export default {
       return new Promise((resolve,reject)=>{
         let id =setTimeout(()=>{
           let result = area.filter(item=>item.parent == parent)
+          result.forEach(node=>{
+            if(area.filter(item=>item.parent === node.id).length>0){
+              node.isLeaf = false
+            }else{
+              node.isLeaf = true
+            }
+          })
             clearTimeout(id)
           resolve(result)
         },500)
