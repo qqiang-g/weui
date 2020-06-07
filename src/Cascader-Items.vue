@@ -1,67 +1,72 @@
 <template>
-    <div class="cascaderItem" :style="{height:height}">
-        <div class="left">
-                <div class="label" @click="leftSelected = item" v-for="item in items" :key="item.name">
-                    {{item.name}} 
-                <Icon  class='icon' v-if="item.children" name='right'></Icon>
-                </div>
-            </div>
-            <div class="right" v-if="leftSelected">
-                <CsacaderItems :items='rightItems' :height='height'></CsacaderItems>
-            </div>
+  <div class="cascaderItem" :style="{ height: height }">
+    <div class="left">
+      <div
+        class="label"
+        @click="leftSelected = item"
+        v-for="item in items"
+        :key="item.name"
+      >
+        {{ item.name }}
+        <Icon class="icon" v-if="item.children" name="right"></Icon>
+      </div>
     </div>
+    <div class="right" v-if="leftSelected">
+      <CsacaderItems :items="rightItems" :height="height"></CsacaderItems>
+    </div>
+  </div>
 </template>
 <script>
-import Icon from './Icon'
-export default  {
-    name:'CsacaderItems',
-    components:{
-        Icon
+import Icon from "./Icon";
+export default {
+  name: "CsacaderItems",
+  components: {
+    Icon
+  },
+  props: {
+    items: {
+      type: Array
     },
-    props: {
-        items:{
-            type:Array
-        },
-        height:{
-            type:String
-        }
-    },
-    data(){
-        return{
-            leftSelected:null
-        }
-    },
-    computed:{
-        rightItems(){
-            if(this.leftSelected&&this.leftSelected.children!==undefined)
-                return this.leftSelected.children
-            else return null
-        }
+    height: {
+      type: String
     }
-}
+  },
+  data() {
+    return {
+      leftSelected: null
+    };
+  },
+  computed: {
+    rightItems() {
+      if (this.leftSelected && this.leftSelected.children !== undefined)
+        return this.leftSelected.children;
+      else return null;
+    }
+  }
+};
 </script>
 <style lang="scss" scoped>
-@import 'var';
-.cascaderItem{
+@import "var";
+.cascaderItem {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  height: 100px;
+  .left {
+    height: 100%;
+    padding: 0.3em 0;
+  }
+  .right {
+    height: 100%;
+    border-left: 1px solid $border-color-light;
+  }
+  .label {
+    padding: 0.3em 1em;
     display: flex;
-    align-items:flex-start;
-    justify-content: flex-start;
-    height: 100px;
-    .left{
-        height: 100%;
-        padding: .3em 0;
+    align-items: center;
+    .icon {
+      margin-left: 0.3rem;
     }
-    .right{
-        height: 100%;
-        border-left: 1px solid $border-color-light;
-    }
-    .label{
-        padding:.3em 1em;
-        display: flex;
-        align-items: center;
-        .icon{
-            margin-left: .3rem;
-        }
-    }
+  }
 }
 </style>

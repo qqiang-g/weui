@@ -1,16 +1,17 @@
 <template>
-     <svg class="we-icon" >
-            <use :xlink:href="`#w-${name}`"></use>
-        </svg>
+  <svg class="we-icon">
+    <use :xlink:href="`#w-${name}`"></use>
+  </svg>
 </template>
 <script>
-import './svg'
+import "./svg";
 export default {
-    props:['name']
-}
+  props: ["name"]
+};
 </script>
 <style lang="scss" scoped>
-
-    .we-icon{ width: 1em; height: 1em; }
-
+.we-icon {
+  width: 1em;
+  height: 1em;
+}
 </style>
