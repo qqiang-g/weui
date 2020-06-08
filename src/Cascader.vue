@@ -1,6 +1,6 @@
 <template>
-  <div class="cascader">
-    <div class="trigger" @click="popovserVisible = !popovserVisible">
+  <div class="cascader" ref="cascader" v-click-outside="close">
+    <div class="trigger" @click="toggle">
       <slot></slot>
       <Input :value="result" />
     </div>
@@ -17,6 +17,7 @@
 </template>
 <script>
 import CascaderItems from "./Cascader-Items";
+import ClickOutside from './Click-Outside'
 import Input from './Input'
 export default {
   name: "Cascader",
@@ -24,6 +25,7 @@ export default {
     CascaderItems: CascaderItems,
     Input:Input
   },
+  directives:{ClickOutside},
   props: {
     source: {
       type: Array
@@ -41,10 +43,40 @@ export default {
   },
   data() {
     return {
-      popovserVisible: true
+      popovserVisible: false
     };
   },
   methods:{
+    onClickDocument(e){
+      let cascader = this.$refs.cascader
+      let { target } = e
+       if(cascader === target || cascader.contains(target)){
+         return
+       }else{
+         this.close()
+       }
+      console.log('click')
+    },
+    open(){
+      this.popovserVisible = true
+      this.$nextTick(()=>{
+        document.addEventListener('click',this.onClickDocument)
+      })
+    },
+    toggle(){
+      if(this.popovserVisible){
+        this.close()
+      }else{
+        this.open()
+      }
+    },
+    close(){
+      this.popovserVisible = false
+      this.$nextTick(()=>{
+        document.removeEventListener('click',this.onClickDocument)
+      })
+    },
+    //更新数据
     onUpdateSelected(newSelected){
       this.$emit('update:selected',newSelected)
       let lastItem = newSelected[newSelected.length-1]

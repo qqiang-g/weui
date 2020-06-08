@@ -5,7 +5,12 @@
     <we-cascader 
       :selected.sync='selected' 
       :source.sync="source" 
-      popover-height="300px"
+      :load-data='loadData'
+    ></we-cascader>
+    <we-cascader 
+      :selected.sync='selected' 
+      :source.sync="source" 
+      :load-data='loadData'
     ></we-cascader>
     </div>
   </div>
@@ -35,16 +40,14 @@ export default {
     };
   },
   created(){
-    // this.ajax2(0).then(result=>{
-    //   this.source = result
-    // })
+    this.ajax2(0).then(result=>{
+      this.source = result
+    })
   },
   methods:{
     loadData(node,callback){
-      // console.log(node)
       let {name,id,parent}  = node
       this.ajax2(id).then(result=>{
-        // console.log(result)
         callback(result)
       })
     },
