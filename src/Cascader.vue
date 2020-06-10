@@ -11,6 +11,7 @@
         :height="popoverHeight" 
         :items="source" 
         :load-date='loadData'
+        :loading-item='loadingItem'
       />
     </div>
   </div>
@@ -43,7 +44,8 @@ export default {
   },
   data() {
     return {
-      popovserVisible: false
+      popovserVisible: false,
+      loadingItem:{},
     };
   },
   methods:{
@@ -55,7 +57,6 @@ export default {
        }else{
          this.close()
        }
-      console.log('click')
     },
     open(){
       this.popovserVisible = true
@@ -96,14 +97,16 @@ export default {
       }
       //获取异步请求过来的数据并添加到选中节点的children上
       let updateSource = (result)=>{
+        this.loadingItem  = {}
         let item = simplest(this.source,lastItem.id)
         if(item){
           this.$set(item,'children',result)
         }
       }
       //回调用户传递过来的数据
-      if(!lastItem.isLeaf){
-        this.loadData && this.loadData(lastItem,updateSource)
+      if(!lastItem.isLeaf && this.loadData){
+        this.loadData(lastItem,updateSource)
+        this.loadingItem = lastItem
       }
 
     }
@@ -136,6 +139,7 @@ export default {
     left: 0;
     background: #fff;
     display: flex;
+    z-index: 1;
     @extend .box-shadow;
     .label {
       white-space: nowrap;

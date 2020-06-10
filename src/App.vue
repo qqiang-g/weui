@@ -64,7 +64,7 @@ export default {
           })
             clearTimeout(id)
           resolve(result)
-        },500)
+        },2500)
         
       })
     }
