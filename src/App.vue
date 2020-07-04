@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <we-button>你好</we-button>
+    <we-button icon ='setting'>你好</we-button>
     <div style="margin:30px;">
     <we-cascader 
       :selected.sync='selected' 
