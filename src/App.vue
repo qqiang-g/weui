@@ -1,81 +1,83 @@
 <template>
   <div id="app">
-    <we-button icon ='setting'>你好</we-button>
-    <div style="margin:30px;">
-    <we-cascader 
-      :selected.sync='selected' 
-      :source.sync="source" 
-      :load-data='loadData'
-    ></we-cascader>
-    <we-cascader 
-      :selected.sync='selected' 
-      :source.sync="source" 
-      :load-data='loadData'
-    ></we-cascader>
-    </div>
+    {{selected}}
+    <gtable numberVisible stripe  bordered :columns='columns'   :data-source='dataSource' @changItem='changItem' />
+    <pager :total-page="page.total" :current-page.sync="page.current" ></pager>
+    <Button>默认按钮</Button>
+    <Button icon="setting">默认按钮</Button>
+    <Button icon="download" icon-position="right">下载</Button>
   </div>
 </template>
 
 <script>
 /* eslint-disable vue/no-unused-components */
-import area from './area'
-import Button from "./Button";
-import Cascader from "./Cascader";
+
+import pager from '@/pager/pager'
+import table from '@/table/table'
+import Button from '@/button/Button'
 export default {
   name: "App",
   components: {
-    "we-button": Button,
-    "we-cascader": Cascader    
+pager,gtable:table,Button
   },
   data() {
     return {
-      source:[
-        {name:'1',id:1,children:[
-          {name:'2', id:2,children:[
-            {name:'3',id:3}
-          ]}
-        ]}
-      ], 
+      page:{
+        total:20,
+        current:1
+      },
+      columns:[
+        {text:'姓名',props:'name'},
+        {text:'年龄',props:'age'}
+      ],
+      dataSource:[
+        {id:1,name:'mack',age:18},
+        {id:2,name:'mayk',age:11},
+        {id:3,name:'pack',age:19},
+        {id:4,name:'mack',age:18},
+        {id:5,name:'mayk',age:11},
+        {id:6,name:'pack',age:19},
+        {id:7,name:'mack',age:18},
+        {id:8,name:'mayk',age:11},
+        {id:9,name:'pack',age:19},
+      ],
       selected:[]
-    };
-  },
-  created(){
-    this.ajax2(0).then(result=>{
-      this.source = result
-    })
-  },
-  methods:{
-    loadData(node,callback){
-      let {name,id,parent}  = node
-      this.ajax2(id).then(result=>{
-        callback(result)
-      })
-    },
-    ajax2(parent=0){
-      return new Promise((resolve,reject)=>{
-        let id =setTimeout(()=>{
-          let result = area.filter(item=>item.parent == parent)
-          result.forEach(node=>{
-            if(area.filter(item=>item.parent === node.id).length>0){
-              node.isLeaf = false
-            }else{
-              node.isLeaf = true
-            }
-          })
-            clearTimeout(id)
-          resolve(result)
-        },2500)
-        
-      })
     }
   },
-  computed:{
+  created(){
+  },
+  methods:{
+    changItem(object){
+        let {selected,index,item} = object
+        if(selected){
+          this.selected.push(item)
+        }else{
+          const index = this.selected.indexOf(item)
+          this.selected.splice(index,1)
+        }
+    }
   }
 };
 </script>
 
-<style lang="scss"></style>
-<style>
+<style scoped>
+.box{
+  width: 100px;
+  height: 100px;
+  background: #dddddd;
+  border: 1px solid #123;
+}
+.fade-enter-active, .fade-leave-active {
+  transition: all 3s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  width: 100px;
+}
+p{
+  border: 1px solid #123;
+  width: 300px;
+}
 *{ padding:0; margin:0;  box-sizing: border-box; }
         html,body{
             width: 100%;
@@ -120,4 +122,13 @@ export default {
     box-shadow:inset 0 0 6px #282929c4;
     background-color:#777777e1;
 }
+.box {
+    width: 100%;
+    height: 350px;
+    background: #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+  }
 </style>

@@ -1,33 +1,25 @@
-
-$blur:#2278ce;
-$border-color-hover:#666;
-$border-color-hover:#666;
-$border-color:#999;
-$border-color-light:lighten($border-color,30%);
-$border-radius:4px;
-$box-shadow-color:#00000050;
-$button-active-bg:#eee;
-$button-bg:#fff;
-$button-height:32px;
-$color:#333;
-$disabled-color:grey;
-$font-size:14px;
-$grey:#ddd;
-$input-height:32px;
-$red:#F1453D;
+$border-color-hover: #666;
+$border-color: #999;
+$border-color-light: lighten($border-color, 30%);
+$border-radius: 4px;
+$box-shadow-color: rgba(0, 0, 0, 0.5);
+$button-active-bg: #eee;
+$button-bg: white;
+$button-height: 32px;
+$color: #333;
+$light-color: #666;
+$font-size: 14px;
+$small-font-size: 12px;
+$input-height: 32px;
+$red: #F1453D;
+$grey: #eee;
+$blue: #4a90e2;
+$disabled-text-color: grey;
 $tabs-height: 40px;
-$toast-bg:#00000090;
-$toast-border-radius:4px;
-$toast-color:#fff;
-$toast-min-height: 40px;
-.box-shadow{
-    box-shadow: 0 0 5px rgba(0,0,0,0.15);
+.box-shadow {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
 }
 @keyframes spin {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

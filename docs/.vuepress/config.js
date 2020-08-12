@@ -10,16 +10,24 @@ module.exports = {
         ],
         displayAllHeaders: true,
         sidebar: [
+            {
+                title: '介绍',
+                collapsable: false,
+                children: [
+                    '/introduce/',
+                ]
+            },
            {
                title: '入门',
                collapsable: false,
-               children:[ '/install/', '/get_started/',]
+               children:[ '/install/', '/useing/',]
            },
             {
                 title:'组件',
                 collapsable: false,
                 children: [
                     '/components/button',
+                    '/components/icon',
                     '/components/grid',
                     '/components/input',
                     '/components/layout',

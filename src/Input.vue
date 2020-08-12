@@ -5,6 +5,7 @@
       :readonly="readonly"
       :disabled="disabled"
       :value="value"
+      :placeholder='placeholder'
       @change="$emit('change', $event.target.value)"
       @input="$emit('input', $event.target.value)"
       @focus="$emit('focus', $event.target.value)"
@@ -17,7 +18,7 @@
   </div>
 </template>
 <script>
-import Icon from "./Icon";
+import Icon from "./icon/Icon.vue";
 export default {
   name: "WeInput",
   components: {
@@ -26,6 +27,9 @@ export default {
   props: {
     value: {
       type: String
+    },
+    placeholder:{
+      type:String
     },
     disabled: {
       type: Boolean,

@@ -7,7 +7,9 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
   },
   "repository": {
     "type": "git",
@@ -37,8 +39,9 @@
     "chai": "^4.1.2",
     "prettier": "^1.19.1",
     "sass": "^1.26.5",
-    "sass-loader": "^8.0.2",
-    "vue-template-compiler": "^2.6.11"
+    "sass-loader": "^7.3.1",
+    "vue-template-compiler": "^2.6.11",
+    "vuepress": "^1.5.3"
   },
   "browserslist": [
     "> 1%",
